@@ -1,0 +1,79 @@
+/* Vollbild-Layout */
+html, body, #root, .screen {
+    height: 100%;
+    margin: 0;
+    font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: #0c1b2a;        /* dunkles Blau */
+    color: #f7f8fa;
+    font-size: 36px;
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+}
+
+.headline {
+    margin: 0 0 1rem;
+    font-size: 2.2rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-align: center;
+}
+
+/* ---------------- Fein-Tuning Abfahrtstabelle ---------------- */
+.board {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.05rem;     /* leicht kleiner */
+    table-layout: fixed;
+}
+
+.board th,
+.board td {
+    padding: 0.35rem 0.6rem;      /* enger */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Spaltenbreiten – %, damit responsiv */
+.board th:nth-child(1),
+.board td:nth-child(1) { width: 10%;  }   /* Zeit */
+.board th:nth-child(2),
+.board td:nth-child(2) { width: 7%;  }   /* Linie */
+.board th:nth-child(3),
+.board td:nth-child(3) { width: 18%; }   /* Richtung */
+.board th:nth-child(4),
+.board td:nth-child(4) { width: 22%; }   /* Haltestelle – mehr Platz */
+.board th:nth-child(5),
+.board td:nth-child(5) { width: 8%;  }   /* Verspätung */
+.board th:nth-child(6),
+.board td:nth-child(6) { width: 8%;  }   /* Los in */
+
+/* Icon-Größe & Zentrierung im Tabellenkopf */
+.hdr-icon {
+    height: 1rem;            /* ggf. anpassen */
+    display: block;
+    margin: 0 auto;
+    color: #fff;
+}
+
+/* Typo & Farben wie zuvor */
+.board th {
+    font-weight: 500;
+    text-align: left;
+    color: #fff;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+}
+
+.line   { font-weight: 600; }
+.dir    { color: #a9c4ff; }
+
+.late   { color: #ff6161; }
+.early  { color: #f0c000; }
+.ontime { color: #30d158; }
