@@ -112,14 +112,18 @@ export default function App() {
 
                         <td>{r.platform}</td>
                         <td className={r.delayMin > 0 ? 'late' : r.delayMin < 0 ? 'early' : 'ontime'}>
+                            <center>
                             {r.delayMin > 0
                                 ? `+${r.delayMin}`
                                 : r.delayMin < 0
                                     ? `${r.delayMin}`
                                     : '🟢'}
+                            </center>
                         </td>
                         <td className={r.leaveIn < 0 ? 'late' : undefined}>
+                            <center>
                             {r.leaveIn > 0 ? `${r.leaveIn}` : `${r.leaveIn}`}
+                            </center>
                         </td>
                     </tr>
                 ))}
