@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  bus-monitor:
+    build: .
+    # ► nur was du brauchst nach außen mappen
+    ports:
+      - "8342:3000"   # Frontend
+      - "4000:4000"   # API (falls extern nötig, sonst weglassen)
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=development   # oder production, wirkt sich hier kaum aus
+      # Falls CRA-Dateiwatcher Probleme macht:
+      # - CHOKIDAR_USEPOLLING=true
